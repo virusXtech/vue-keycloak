@@ -1,18 +1,18 @@
-<table align="center" cellspacing="0" cellpadding="0" style="border: none;">
-<tr style="border: none;">
-  <td style="border: none;">
-    <img width="100px" src="https://vuejs.org/images/logo.png" />
-  </td>
-  <td style="border: none;">
-    <h1 style="font-size: 2em">+</h1>
-  </td>
-  <td style="border: none;">
-    <img width="200px" src="https://www.keycloak.org/resources/images/keycloak_logo_200px.svg" />
-  </td>
-</tr>
-</table>
-
 # vue-keycloak
+
+<table align="center" cellspacing="0" cellpadding="0" style="border: none;">
+  <tr style="border: none;">
+    <td style="border: none;">
+      <img width="100px" src="https://vuejs.org/images/logo.png" alt="Vue.js Logo" />
+    </td>
+    <td style="border: none;">
+      <h1 style="font-size: 2em">+</h1>
+    </td>
+    <td style="border: none;">
+      <img width="200px" src="https://www.keycloak.org/resources/images/keycloak_logo_200px.svg" alt="Keycloak Logo" />
+    </td>
+  </tr>
+</table>
 
 A small wrapper library for the [Keycloak JavaScript adapter](https://www.keycloak.org/docs/latest/securing_apps/#_javascript_adapter).
 
@@ -20,10 +20,11 @@ A small wrapper library for the [Keycloak JavaScript adapter](https://www.keyclo
 
 ## Instalation
 
-Install the [keycloak-js](https://www.keycloak.org/docs/latest/securing_apps/#_javascript_adapter) package , [jwt-decode](https://www.npmjs.com/package/jwt-decode) to decode the jwt token and our wrapper library with npm.
+Install the [keycloak-js](https://www.keycloak.org/docs/latest/securing_apps/#_javascript_adapter) package, [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+to decode the jwt token and our wrapper library with npm.
 
 ```bash
-npm install keycloak-js jwt-decode @virusXtech/vue-keycloak
+npm install keycloak-js jwt-decode @virusxtech/vue-keycloak
 ```
 
 ## Use plugin
@@ -31,7 +32,7 @@ npm install keycloak-js jwt-decode @virusXtech/vue-keycloak
 Import the library into your `src/main.ts` file or any other entry point.
 
 ```typescript
-import { vueKeycloak } from '@virusXtech/vue-keycloak'
+import { vueKeycloak } from '@virusxtech/vue-keycloak'
 ```
 
 Apply the library to the vue app instance.
@@ -48,8 +49,8 @@ app.use(vueKeycloak, {
   config: {
     url: 'http://keycloak-server/',
     realm: 'myrealm',
-    clientId: 'myapp'
-  }
+    clientId: 'myapp',
+  },
 })
 ```
 
@@ -94,13 +95,11 @@ We export two helper functions for the token.
 
 This function checks if the token is still valid and will update it if it is expired.
 
-> Have a look at our [vueAxios](https://github.com/virusXtech/vue-axios) plugin.
-
 ```typescript
-import { $axios } from '@virusXtech/vue-axios'
-import { getToken } from '@virusXtech/vue-keycloak'
+import axios from 'axios'
+import { getToken } from '@virusxtech/vue-keycloak'
 
-const axiosApiInstance = $axios.create()
+const axiosApiInstance = axios.create()
 
 // Request interceptor for API calls
 axiosApiInstance.interceptors.request.use(
@@ -121,7 +120,7 @@ axiosApiInstance.interceptors.request.use(
 
 ```typescript
 import { computed, defineComponent } from 'vue'
-import { useKeycloak } from '@virusXtech/vue-keycloak'
+import { useKeycloak } from '@virusxtech/vue-keycloak'
 
 export default defineComponent({
   setup() {
@@ -141,7 +140,7 @@ export default defineComponent({
 The `useKeycloak` function exposes the following reactive state.
 
 ```typescript
-import { useKeycloak } from '@virusXtech/vue-keycloak'
+import { useKeycloak } from '@virusxtech/vue-keycloak'
 
 const {
   isAuthenticated,
@@ -170,7 +169,7 @@ const {
 | username        | `Ref<string>`                  | `username` the name of our user.                                    |
 | roles           | `Ref<string[]>`                | `roles` is a list of the users roles.                               |
 | resourceRoles   | `Ref<Record<string, string[]>` | `resourceRoles` is a list of the users roles in specific resources. |
-| keycloak        | `Keycloak.KeycloakInstance`    | `keycloak` is the instance of the keycloak-js adapter.              |
+| keycloak        | `Keycloak`                     | `keycloak` is the instance of the keycloak-js adapter.              |
 
 #### Functions
 
@@ -179,6 +178,6 @@ const {
 | hasRoles         | `(roles: string[]) => boolean`                   | `hasRoles` returns true if the user has all the given roles.                       |
 | hasResourceRoles | `(roles: string[], resource: string) => boolean` | `hasResourceRoles` returns true if the user has all the given roles in a resource. |
 
-# License
+## License
 
 Apache-2.0 Licensed | Copyright © 2021-present Gery Hirschfeld & Contributors
