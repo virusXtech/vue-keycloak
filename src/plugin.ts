@@ -31,7 +31,7 @@ export const vueKeycloak: Plugin = {
     }
 
     const keycloakConfig = keycloakPluginConfig.config
-    const keycloakInitOptions: Keycloak.KeycloakInitOptions = !isNil(keycloakPluginConfig.initOptions)
+    const keycloakInitOptions: KeycloakInitOptions = !isNil(keycloakPluginConfig.initOptions)
       ? { ...defaultInitConfig, ...keycloakPluginConfig.initOptions }
       : defaultInitConfig
 

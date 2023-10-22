@@ -1,6 +1,6 @@
 {
   "name": "@virusxtech/vue-keycloak",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Keycloak plugin for Vue3 and Composition API",
   "homepage": "https://github.com/virusXtech/vue-keycloak",
   "repository": {
